@@ -40,6 +40,7 @@ Things you may want to cover:
 - has_many :items
 - has_many :comments
 - has_one :buyer
+- has_many :history
 
 ## itemsテーブル
 
@@ -86,9 +87,9 @@ Things you may want to cover:
 |  item           |  references  |  null: false, foreign_key: true |
 
 # Association
-
 - belongs_to :user
 - belongs_to :item
+- has_many :history
 
 ## historyテーブル
 
@@ -98,3 +99,7 @@ Things you may want to cover:
 |  items_name     |  string      |  null: false                    |
 |  purchase_date  |  string      |  null: false                    |
 |  user           |  references  |  null: false, foreign_key: true |
+
+# Association
+- belongs_to :user
+- belongs_to :buyer
