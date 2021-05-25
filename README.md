@@ -52,13 +52,13 @@ Things you may want to cover:
 |  delivery_id    |  integer     |  null: false                    |
 |  area_id        |  integer     |  null: false                    |
 |  day_id         |  integer     |  null: false                    |
-|  price_id       |  integer     |  null: false                    |
+|  price          |  integer     |  null: false                    |
 |  user           |  references  |  null: false, foreign_key: true |
 
 # Association
 - belongs_to :user
 - has_many :comments
-- has_one :histories
+- has_one :history
 
 ## commentsテーブル
 
@@ -72,17 +72,17 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 
-## buyerテーブル
+## buyersテーブル
 
 |  Column         |  Type        |  Options                        |
 | --------------- | ------------ | ------------------------------- |
 |  postal_code    |  string      |  null: false                    |
-|  prefectures    |  string      |  null: false                    |
+|  area           |  integer     |  null: false                    |
 |  municipality   |  string      |  null: false                    |
 |  address        |  string      |  null: false                    |
 |  building       |  string      |                                 |
 |  phone          |  string      |  null: false                    |
-|  histories      |  references  |  null: false, foreign_key: true |
+|  history        |  references  |  null: false, foreign_key: true |
 
 # Association
 - belongs_to :history
@@ -97,4 +97,4 @@ Things you may want to cover:
 # Association
 - belongs_to :user
 - belongs_to :item
-- has_many :buyer
+- has_one :buyer
