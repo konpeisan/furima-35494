@@ -25,13 +25,16 @@ Things you may want to cover:
 
 ## usersテーブル
 
-|  Column         |  Type    |  Options      |
-| --------------- | -------- | ------------- |
-|  nickname       |  string  |  null: false  |
-|  email          |  string  |  null: false  |
-|  password       |  string  |  null: false  |
-|  name           |  string  |  null: false  |
-|  date_of_birth  |  string  |  null: false  |
+|  Column             |  Type    |  Options                   |
+| ------------------- | -------- | -------------------------- |
+|  nickname           |  string  |  null: false               |
+|  email              |  string  |  null: false, default: ""  |
+|  encrypted_password |  string  |  null: false, default: ""  |
+|  last_name          |  string  |  null: false               |
+|  first_name         |  string  |  null: false               |
+|  last_name_kana     |  string  |  null: false               |
+|  first_name         |  string  |  null: false               |
+|  birthday           |  date    |  null: false               |
 
 #  Association
 - has_many :items
@@ -42,12 +45,14 @@ Things you may want to cover:
 
 |  Column         |  Type        |  Options                        |
 | --------------- | ------------ | ------------------------------- |
-|  image          |  Active      |                                 |
 |  items_name     |  string      |  null: false                    |
 |  items_text     |  text        |  null: false                    |
-|  category       |  string      |  null: false                    |
-|  delivery       |  string      |  null: false                    |
-|  price          |  string      |  null: false                    |
+|  category_id    |  integer     |  null: false                    |
+|  status         |  integer     |  null: false                    |
+|  delivery       |  integer     |  null: false                    |
+|  area           |  integer     |  null: false                    |
+|  day            |  integer     |  null: false                    |
+|  price          |  integer     |  null: false                    |
 |  user_id        |  references  |  null: false, foreign_key: true |
 
 # Association
@@ -60,8 +65,8 @@ Things you may want to cover:
 |  Column         |  Type        |  Options                        |
 | --------------- | ------------ | ------------------------------- |
 |  text           |  text        |  null: false                    |
-|  item_id        |  references  |  null: false, foreign_key: true |
-|  user_id        |  references  |  null: false, foreign_key: true |
+|  item           |  references  |  null: false, foreign_key: true |
+|  user           |  references  |  null: false, foreign_key: true |
 
 # Association
 - belongs_to :user
@@ -71,13 +76,25 @@ Things you may want to cover:
 
 |  Column         |  Type        |  Options                        |
 | --------------- | ------------ | ------------------------------- |
-|  card           |  string      |  null: false                    |
-|  phone          |  string      |  null: false                    |
+|  postal_code    |  string      |  null: false                    |
+|  prefectures    |  string      |  null: false                    |
+|  municipality   |  string      |  null: false                    |
 |  address        |  string      |  null: false                    |
-|  user_id        |  references  |  null: false, foreign_key: true |
-|  item_id        |  references  |  null: false, foreign_key: true |
+|  building       |  string      |  null: false                    |
+|  phone          |  string      |  null: false                    |
+|  user           |  references  |  null: false, foreign_key: true |
+|  item           |  references  |  null: false, foreign_key: true |
 
 # Association
 
 - belongs_to :user
 - belongs_to :item
+
+## historyテーブル
+
+|  Column         |  Type        |  Options                        |
+| --------------- | ------------ | ------------------------------- |
+|  price          |  integer     |  null: false                    |
+|  items_name     |  string      |  null: false                    |
+|  purchase_date  |  string      |  null: false                    |
+|  user           |  references  |  null: false, foreign_key: true |
