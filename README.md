@@ -39,7 +39,7 @@ Things you may want to cover:
 #  Association
 - has_many :items
 - has_many :comments
-- has_many :history
+- has_many :histories
 
 ## itemsテーブル
 
@@ -85,9 +85,7 @@ Things you may want to cover:
 |  histories      |  references  |  null: false, foreign_key: true |
 
 # Association
-- belongs_to :user
-- belongs_to :item
-- has_many :history
+- belongs_to :history
 
 ## historiesテーブル
 
