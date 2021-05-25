@@ -147,7 +147,7 @@
                         <mxPoint x="560" y="270" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="75" value="history" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" collapsed="1" parent="1">
+                <mxCell id="75" value="historiesテーブル" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" vertex="1" collapsed="1" parent="1">
                     <mxGeometry x="70" y="430" width="150" height="30" as="geometry">
                         <mxRectangle x="70" y="370" width="180" height="160" as="alternateBounds"/>
                     </mxGeometry>

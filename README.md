@@ -25,16 +25,16 @@ Things you may want to cover:
 
 ## usersテーブル
 
-|  Column             |  Type    |  Options                   |
-| ------------------- | -------- | -------------------------- |
-|  nickname           |  string  |  null: false               |
-|  email |  string  |  null: false, default: "",unique: true  |
-|  encrypted_password |  string  |  null: false, default: ""  |
-|  last_name          |  string  |  null: false               |
-|  first_name         |  string  |  null: false               |
-|  last_name_kana     |  string  |  null: false               |
-|  first_name         |  string  |  null: false               |
-|  birthday           |  date    |  null: false               |
+|  Column             |  Type    |  Options                                |
+| ------------------- | -------- | --------------------------------------- |
+|  nickname           |  string  |  null: false                            |
+|  email              |  string  |  null: false, default: "",unique: true  |
+|  encrypted_password |  string  |  null: false, default: ""               |
+|  last_name          |  string  |  null: false                            |
+|  first_name         |  string  |  null: false                            |
+|  last_name_kana     |  string  |  null: false                            |
+|  first_name         |  string  |  null: false                            |
+|  birthday           |  date    |  null: false                            |
 
 #  Association
 - has_many :items
@@ -49,10 +49,10 @@ Things you may want to cover:
 |  items_text     |  text        |  null: false                    |
 |  category_id    |  integer     |  null: false                    |
 |  status_id      |  integer     |  null: false                    |
-|  delivery       |  integer     |  null: false                    |
-|  area           |  integer     |  null: false                    |
-|  day            |  integer     |  null: false                    |
-|  price          |  integer     |  null: false                    |
+|  delivery_id    |  integer     |  null: false                    |
+|  area_id        |  integer     |  null: false                    |
+|  day_id         |  integer     |  null: false                    |
+|  price_id       |  integer     |  null: false                    |
 |  user           |  references  |  null: false, foreign_key: true |
 
 # Association
