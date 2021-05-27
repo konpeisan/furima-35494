@@ -12,6 +12,7 @@ class Item < ApplicationRecord
   # has_one          :history
 
   with_options presence: true do
+    validates :image
     validates :items_name
     validates :items_text
     with_options numericality: {other_than: 1} do
@@ -22,7 +23,7 @@ class Item < ApplicationRecord
       validates :shopping_day_id
     end
     with_options format: {with: /\A[0-9]+\z/} do
-      validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message:"300~9,999,999の間で指定してください"}
+      validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message:"は300~9,999,999の間で指定してください"}
     end
   end
 end
