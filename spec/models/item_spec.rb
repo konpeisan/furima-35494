@@ -82,6 +82,16 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("User must exist")
       end
+      it '半角英数混合では登録できない' do
+        @item.price = "aaa000"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price は300~9,999,999の間で指定してください")
+      end
+      it '半角英語だけでは登録できない' do
+        @item.price = "aaaaa"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price は300~9,999,999の間で指定してください")
+      end
     end
   end
 end
