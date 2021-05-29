@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
 
   def create
     @history_order = HistoryOrder.new(order_params)
-    binding.pry
     if @history_order.valid?
       pay_item
       @history_order.save
@@ -19,13 +18,13 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:history_order).permit(:postal_code,:municipality,:address,:building,:phone).merge(token: params[:token],user_id: current_user.id,item_id: @item.id)
+    params.require(:history_order).permit(:postal_code,:area_id,:municipality,:address,:building,:phone).merge(token: params[:token],user_id: current_user.id,item_id: @item.id)
   end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: order_params[:@item.price],
+      amount: @item.price,
       card: order_params[:token],
       currency: 'jpy'
     )

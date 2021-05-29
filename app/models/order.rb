@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to       :area
  # attr_accessor :token
 
  # with_options presence: true do
