@@ -50,6 +50,21 @@ RSpec.describe HistoryOrder, type: :model do
         @history_order.valid?
         expect(@history_order.errors.full_messages).to include("Phone can't be blank")
       end
+      it 'phoneは9桁以下だと購入できない' do
+        @history_order.phone = "123456789"
+        @history_order.valid?
+        expect(@history_order.errors.full_messages).to include("Phone is invalid")
+      end
+      it 'phoneは12桁以上だと購入できない' do
+        @history_order.phone = "090123456789"
+        @history_order.valid?
+        expect(@history_order.errors.full_messages).to include("Phone is invalid")
+      end
+      it 'tokenが空だと購入できない' do
+        @history_order.token = ""
+        @history_order.valid?
+        expect(@history_order.errors.full_messages).to include("Token can't be blank")
+      end
       it 'userが紐付いていないと購入できないこと' do
         @history_order.user_id = nil
         @history_order.valid?
