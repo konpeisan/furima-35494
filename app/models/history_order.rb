@@ -1,9 +1,6 @@
 class HistoryOrder
   include ActiveModel::Model
-  attr_accessor :postal_code,:municipality,:address,:building,:phone,:item_id,:user_id,:history_id,:token
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :area
+  attr_accessor :postal_code,:area_id,:municipality,:address,:building,:phone,:item_id,:user_id,:history_id,:token
 
   with_options presence: true do
     validates :token
