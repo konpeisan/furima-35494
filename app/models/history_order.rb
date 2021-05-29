@@ -7,10 +7,10 @@ class HistoryOrder
     validates :user_id
     validates :item_id
     validates :postal_code, format:{with: /\A[0-9]{3}-[0-9]{4}\z/, message:"は(-)を含めてください"}
+    validates :area_id, numericality: {other_than: 1, message:"を選択してください"}
     validates :municipality, format:{with: /\A[ぁ-んァ-ンー-龥]/}
     validates :address
     validates :phone, format:{with: /\A\d{10}\z|\A\d{11}\z/}
-    validates :area_id, numericality: {other_than: 1, message:"を選択してください"}
   end
 
   def save
