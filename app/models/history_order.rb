@@ -1,6 +1,6 @@
 class HistoryOrder
   include ActiveModel::Model
-  attr_accessor :postal_code,:area_id,:municipality,:address,:building,:phone,:item_id,:user_id,:history_id,:token
+  attr_accessor :postal_code,:area_id,:municipality,:address,:building,:phone,:item_id,:user_id,:token
 
   with_options presence: true do
     validates :token
