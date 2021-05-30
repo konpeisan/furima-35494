@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   belongs_to       :user
   # has_many         :comments
-  # has_one          :history
+  has_one          :history
 
   with_options presence: true do
     validates :image
