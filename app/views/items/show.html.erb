@@ -23,7 +23,7 @@
       </span>
     </div>
 
-    <% if user_signed_in? && unless @item.history.present? %>
+    <% if user_signed_in? && @item.history.blank? %>
     
     <% if current_user.id == @item.user.id %>
     
@@ -35,7 +35,6 @@
 
     <%= link_to "購入画面に進む", item_orders_path(item_id: @item.id) ,class:"item-red-btn"%>
 
-    <% end %>
     <% end %>
     <% end %>
 
