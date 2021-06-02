@@ -23,6 +23,8 @@
       </span>
     </div>
 
+    <%= "PV数 #{@item.impressionist_count}" %>
+
     <% if user_signed_in? && @item.history.blank? %>
     
     <% if current_user.id == @item.user.id %>

@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  is_impressionable counter_cache: true
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to       :category
   belongs_to       :status

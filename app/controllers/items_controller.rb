@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :item_find, only: [:show,:edit,:update,:destroy]
   before_action :go_root, only: [:edit,:update,:destroy]
   before_action :out_root, only: [:edit,:update,:destory]
+  impressionist actions: [:show]
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -22,6 +23,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    impressionist(@item,nil,unique: [:ip_address])
   end
 
   def edit
