@@ -25,6 +25,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     impressionist(@item,nil,unique: [:ip_address])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def edit
