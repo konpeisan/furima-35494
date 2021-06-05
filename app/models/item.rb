@@ -29,4 +29,12 @@ class Item < ApplicationRecord
       validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message:"は300~9,999,999の間で指定してください"}
     end
   end
+
+  def self.search(search)
+    if search != ""
+      Item.where('items_name LIKE(?)',"%#{search}%")
+    else
+      Item.all
+    end
+  end
 end
