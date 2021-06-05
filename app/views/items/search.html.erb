@@ -31,4 +31,8 @@
   <% end %>
 </ul>
 
+<% if @items.length == 0 %>
+<h4><%= "検索結果がありませんでした" %></h4>
+<%end%>
+
 <%= render "shared/footer" %>
